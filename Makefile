@@ -6,61 +6,102 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2020/05/22 20:56:19 by mjiam         ########   odam.nl          #
+#    Updated: 2021/03/23 22:56:08 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ftlib.a
+NAME	=	libftx.a
 
-SRC =	$(addprefix $(FD_D), ft_putchar_fd.c ft_putendl_fd.c \
-								ft_putnbr_fd.c ft_putstr_fd.c) \
-		$(addprefix $(LST_D), ft_lst2add_back.c ft_lst2add_front.c \
-								ft_lst2new.c \
-								ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-								ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-								ft_lstmap.c ft_lstnew.c ft_lstsize.c) \
-		$(addprefix $(MEM_D), ft_bzero.c ft_calloc.c ft_memccpy.c \
-								ft_memchr.c ft_memcmp.c ft_memcpy.c \
-								ft_memmove.c ft_memset.c) \
-		$(addprefix $(NUM_D), ft_atoi.c ft_itoa.c) \
-		$(addprefix $(STR_D), ft_split.c ft_strchr.c ft_strdup.c ft_strjoin.c \
-								ft_strlcat.c ft_strlcpy.c ft_strlen.c \
-								ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-								ft_strrchr.c ft_strtrim.c ft_substr.c) \
-  		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
-		ft_isupperc.c ft_tolower.c ft_toupper.c ft_whitespskip.c
+HEADER	=	libftx.h
 
-OBJ = $(SRC:.c=.o)
+CC		=	gcc
+FLAGS	=	-Wall -Wextra -Werror
 
-FD_D	= fd/
-LST_D	= lst/
-MEM_D	= mem/
-NUM_D	= num/
-STR_D	= str/
+VPATH	=	$(SRC_DIR)/$(CHR_D):\
+			$(SRC_DIR)/$(FD_D):\
+			$(SRC_DIR)/$(LST_D):\
+			$(SRC_DIR)/$(MEM_D):\
+			$(SRC_DIR)/$(NUM_D):\
+			$(SRC_DIR)/$(STR_D)
 
-CFLAGS = -Wall -Wextra -Werror
+SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
+				ft_isascii.c ft_isdigit.c \
+				ft_isprint.c ft_isupperc.c \
+				ft_tolower.c ft_toupper.c \
+				ft_skipws.c) \
+			$(addprefix $(FD_D), ft_putchar_fd.c ft_putendl_fd.c \
+				ft_putnbr_fd.c ft_putstr_fd.c) \
+			$(addprefix $(LST_D), ft_dlst_mergesort.c ft_dlstadd_back.c \
+				ft_dlstadd_front.c ft_dlstnew.c \
+				ft_lstadd_back.c ft_lstadd_front.c \
+				ft_lstadd_node.c ft_lstclear.c \
+				ft_lstdelhead.c ft_lstdelone.c \
+				ft_lstiter.c ft_lstlast.c \
+				ft_lstmap.c ft_lstnew.c \
+				ft_lstprint_int.c ft_lstsize.c) \
+			$(addprefix $(MEM_D), ft_bzero.c ft_calloc.c \
+				ft_memccpy.c ft_memchr.c \
+				ft_memcmp.c ft_memcpy.c \
+				ft_memmove.c ft_memset.c) \
+			$(addprefix $(NUM_D), ft_atoi_base.c ft_atoi.c \
+				ft_itoa.c) \
+			$(addprefix $(STR_D), ft_split.c ft_strchr.c \
+				ft_strcmp.c ft_strdup.c \
+				ft_strjoin.c ft_strlcat.c \
+				ft_strlcpy.c ft_strlen.c \
+				ft_strmapi.c ft_strncmp.c \
+				ft_strnstr.c ft_strrchr.c \
+				ft_strtrim.c ft_substr.c)
+
+OBJ		=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
+
+CHR_D	=	char/
+FD_D	=	fd/
+LST_D	=	lst/
+MEM_D	=	mem/
+NUM_D	=	num/
+STR_D	=	str/
+
+SRC_DIR	=	src/
+INC_DIR	=	inc/
+OBJ_DIR	=	obj/
+
+# COLORS
+CYAN	= 	\033[0;36m
+PURPLE	= 	\033[0;35m
+BLUE	= 	\033[0;34m
+RESET	= 	\033[0m
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Linking library"
+	@echo "$(PURPLE)Linking library$(RESET)"
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "Library $(CYAN)$@$(RESET) made"	
 
-%.o: %.c
-	@echo "Compiling: $<"
-	@gcc -o $@ -c $< $(CFLAGS)
+# $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(@D)
+	@echo "$(PURPLE)Compiling: $<$(RESET)"
+	@$(CC) $(FLAGS) -I $(INC_DIR) -c $< -o $@
+
+$(OBJ_DIR):
+	echo "$(@D)"
+	@mkdir -p $(@D)
 
 clean:
-	@echo "Cleaning"
-	@rm -f $(OBJ)
-	@rm -f bonus
+	@echo "$(BLUE)Cleaning$(RESET)"
+	@rm -rf $(OBJ_DIR)
+	@echo "$(BLUE)Removed: $(OBJ_DIR)$(RESET)"
 
 fclean: clean
-	@echo "Clean af"
-	@rm -f $(NAME)
+	@echo "$(BLUE)Removing: $(NAME)$(RESET)"
+	@rm -rf $(NAME)
+	@echo "$(BLUE)Clean af$(RESET)"
 
 re:
+	@echo "$(BLUE)Once more from the top$(RESET)"
 	@$(MAKE) fclean
 	@$(MAKE) all
 
