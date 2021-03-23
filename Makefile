@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/03/23 22:56:08 by mjiam         ########   odam.nl          #
+#    Updated: 2021/03/23 23:26:12 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,6 @@ HEADER	=	libftx.h
 
 CC		=	gcc
 FLAGS	=	-Wall -Wextra -Werror
-
-VPATH	=	$(SRC_DIR)/$(CHR_D):\
-			$(SRC_DIR)/$(FD_D):\
-			$(SRC_DIR)/$(LST_D):\
-			$(SRC_DIR)/$(MEM_D):\
-			$(SRC_DIR)/$(NUM_D):\
-			$(SRC_DIR)/$(STR_D)
 
 SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 				ft_isascii.c ft_isdigit.c \
@@ -80,19 +73,19 @@ $(NAME): $(OBJ)
 	@ranlib $(NAME)
 	@echo "Library $(CYAN)$@$(RESET) made"	
 
-# $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(@D)
 	@echo "$(PURPLE)Compiling: $<$(RESET)"
 	@$(CC) $(FLAGS) -I $(INC_DIR) -c $< -o $@
 
-$(OBJ_DIR):
-	echo "$(@D)"
-	@mkdir -p $(@D)
+test: $(NAME) test.c
+	@$(CC) $(FLAGS) test.c -L. -lftx -o test
+	@./test
 
 clean:
 	@echo "$(BLUE)Cleaning$(RESET)"
 	@rm -rf $(OBJ_DIR)
+	@rm -rf test
 	@echo "$(BLUE)Removed: $(OBJ_DIR)$(RESET)"
 
 fclean: clean
