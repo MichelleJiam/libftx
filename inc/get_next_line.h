@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/07 17:06:51 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/02 19:20:19 by mjiam         ########   odam.nl         */
+/*   Created: 2019/11/12 18:29:24 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/02 19:02:40 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftx.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
+# include "libftx.h"
 
-/* Allocates (with malloc(3)) and returns a new element. 
-The variable content is initialized with the value of the parameter content. 
-The variable next is initialized to NULL. */
-
-t_list	*ft_lstnew(void *content)
+typedef struct s_file
 {
-	t_list	*new;
+	int				fd;
+	char			*data;
+	struct s_file	*next;
+	struct s_file	*prev;
+}				t_file;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
-}
+int		get_next_line(int fd, char **line);
+int		ft_free_files(t_file **files, int code);
+int		ft_free_one_file(t_file **files, t_file *file);
+
+#endif

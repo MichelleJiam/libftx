@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lst2add_front.c                                 :+:    :+:            */
+/*   ft_dlstadd_front.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/22 20:26:10 by mjiam         #+#    #+#                 */
-/*   Updated: 2020/05/22 20:26:10 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/02 19:19:11 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/02 19:19:11 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_dlstadd_front(t_dlist **head, t_dlist *new)
 	if (!head || !new)
 		return ;
 	new->next = *head;
-	(*head)->prev = new;
-	*head = new;
 	new->prev = NULL;
+	if (*head && (*head)->prev)
+		(*head)->prev = new;
+	*head = new;
 }

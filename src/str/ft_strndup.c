@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memset.c                                        :+:    :+:            */
+/*   ft_strndup.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 12:35:17 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/02 19:21:01 by mjiam         ########   odam.nl         */
+/*   Created: 2021/03/26 16:34:27 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/03/26 16:36:33 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-/* writes len bytes of value c (converted to an unsigned char) to the string b.
-Returns first argument. */
+/* Allocates sufficient memory for a copy of the string s1, 
+does the copy up to atmost len bytes, and returns a pointer to it.  
+The pointer may subsequently be used as an argument to the function free(3). 
+If insufficient memory is available, NULL is returned. */
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strndup(const char *s1, size_t len)
 {
 	size_t	i;
+	char	*s2;
 
 	i = 0;
-	while (len > 0)
+	s2 = malloc(sizeof(*s1) * (len + 1));
+	if (!s2)
+		return (NULL);
+	while (i < len)
 	{
-		((char *)b)[i] = (unsigned char)c;
+		s2[i] = s1[i];
 		i++;
-		len--;
 	}
-	return (b);
+	s2[i] = '\0';
+	return (s2);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lst2new.c                                       :+:    :+:            */
+/*   ft_dlstnew.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/22 20:13:46 by mjiam         #+#    #+#                 */
-/*   Updated: 2020/05/22 20:13:46 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/02 19:19:31 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/02 19:19:31 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ The variable content is initialized with the value of the parameter content.
 The variable prev is initialized to the parameter previous (preceding element).
 The variable next is initialized to NULL. */
 
-t_dlist *ft_dlstnew(void *content, t_dlist *previous)
+t_dlist	*ft_dlstnew(void *content, t_dlist *previous)
 {
-	t_dlist *new;
+	t_dlist	*new;
 
 	new = (t_dlist *)malloc(sizeof(t_dlist));
 	if (!new)

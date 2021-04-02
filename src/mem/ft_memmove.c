@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 15:35:35 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/03/23 21:39:09 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/02 19:20:47 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ non-destructive manner. Returns original value of dst. */
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!dst && !src)

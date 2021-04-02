@@ -12,11 +12,12 @@
 
 #include "libftx.h"
 
-/* Frees the memory of the current head of a list and updates it to the next element. */
+/* Frees the memory of the current head of a list and 
+updates it to the next element. */
 
 void	ft_lstdelhead(t_list **head)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!head)
 		return ;

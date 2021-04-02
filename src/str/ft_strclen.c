@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   ft_strclen.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/07 17:06:51 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/02 19:20:19 by mjiam         ########   odam.nl         */
+/*   Created: 2021/03/26 16:24:36 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/02 19:20:34 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-/* Allocates (with malloc(3)) and returns a new element. 
-The variable content is initialized with the value of the parameter content. 
-The variable next is initialized to NULL. */
+/* Computes the length of the string s up until parameter c. 
+Returns the number of characters that precede c. */
 
-t_list	*ft_lstnew(void *content)
+size_t	ft_strclen(const char *s, char c)
 {
-	t_list	*new;
+	size_t	i;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	i = 0;
+	while (s[i] != c)
+		i++;
+	return (i);
 }

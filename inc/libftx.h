@@ -6,16 +6,17 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/03/23 21:15:37 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/02 19:28:30 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTX_H
 # define LIBFTX_H
-# include <stddef.h>
-# include <stdint.h> // intmax_t
+# include <stddef.h> // size_t, NULL
+# include <stdint.h> // intmax_t, intptr_t
 # include <stdlib.h> // free, malloc
 # include <unistd.h> // write
+# include "get_next_line.h"
 
 typedef struct s_dlist
 {
@@ -88,8 +89,10 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
+size_t	ft_strclen(const char *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strndup(const char *s1, size_t len);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
