@@ -6,12 +6,13 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/02 19:28:30 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/09 21:38:29 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTX_H
 # define LIBFTX_H
+# include <limits.h> // INT_MAX
 # include <stddef.h> // size_t, NULL
 # include <stdint.h> // intmax_t, intptr_t
 # include <stdlib.h> // free, malloc
@@ -77,7 +78,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 
 /* num */
+int		ft_atoi_base(const char *str, int str_base);
 int		ft_atoi(const char *str);
+int		ft_intoverflow(int *result, int a, int b);
 char	*ft_itoa(int n);
 
 /* str */

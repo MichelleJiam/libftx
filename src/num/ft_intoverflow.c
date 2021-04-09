@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test.c                                             :+:    :+:            */
+/*   ft_intoverflow.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/03/23 23:03:39 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/09 21:42:31 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/09 21:21:10 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/09 21:36:36 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/libftx.h"
-#include <stdio.h>
+#include "libftx.h"
 
-int	main(void)
+/* Checks for integer overflow in sum of a and b. 
+If overflow, teturns 1 without modifying result. 
+If not, updates result with sum and returns 0. */
+
+int	ft_intoverflow(int *result, int a, int b)
 {
-	if (ft_isalnum('a'))
-		write(1, "yes\n", 4);
-	
-	char *cpy;
-
-	cpy = ft_strdup("Hello world\n42\n");
-	ft_putstr_fd(cpy, 1);
-
-	int a = INT_MAX - 5;
-	int b = 5;
-	int *res = (int *)malloc(sizeof(int));
-
-	if (ft_intoverflow(res, a, b))
-		printf("Overflow detected trying to sum [%d] + [%d]\n", a, b);
+	if (a > INT_MAX - b)
+		return (1);
 	else
-		printf("No overflow. Sum is [%d]\n", *res);
-	return (0);
+	{
+		*result = a + b;
+		return (0);
+	}
 }
