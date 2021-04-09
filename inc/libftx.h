@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/09 21:38:29 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/09 23:12:31 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	*ft_memset(void *b, int c, size_t len);
 
 /* num */
 int		ft_atoi_base(const char *str, int str_base);
+int		ft_atoi_strict(const char *str, int *num);
 int		ft_atoi(const char *str);
 int		ft_intoverflow(int *result, int a, int b);
 char	*ft_itoa(int n);
