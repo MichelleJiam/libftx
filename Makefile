@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/02 19:03:28 by mjiam         ########   odam.nl          #
+#    Updated: 2021/04/09 19:25:56 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,10 +81,6 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(@D)
 	@echo "$(PURPLE)Compiling: $<$(RESET)"
 	@$(CC) $(FLAGS) -I $(INC_DIR) -c $< -o $@
-
-test: $(NAME) test.c
-	@$(CC) $(FLAGS) test.c -L. -lftx -o test
-	@./test
 
 clean:
 	@echo "$(BLUE)Cleaning$(RESET)"
