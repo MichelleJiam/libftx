@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/13 22:25:27 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/13 22:34:57 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ int		ft_var_free(int ret, int num, ...);
 int		ft_atoi_base(const char *str, int str_base);
 int		ft_atoi_strict(const char *str, int *num);
 int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
 int		ft_intoverflow(int *result, int a, int b);
+char	*ft_itoa(int n);
 
 /* str */
 char	**ft_split(char const *s, char c);
