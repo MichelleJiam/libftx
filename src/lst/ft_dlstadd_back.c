@@ -30,5 +30,5 @@ void	ft_dlstadd_back(t_dlist **head, t_dlist *new)
 		new->prev = tmp;
 	}
 	else
-		*head = new;
+		ft_dlstadd_front(head, new);
 }

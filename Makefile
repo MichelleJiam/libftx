@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/09 23:11:57 by mjiam         ########   odam.nl          #
+#    Updated: 2021/04/13 22:26:31 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 			$(addprefix $(MEM_D), ft_bzero.c ft_calloc.c \
 				ft_memccpy.c ft_memchr.c \
 				ft_memcmp.c ft_memcpy.c \
-				ft_memmove.c ft_memset.c) \
+				ft_memmove.c ft_memset.c \
+				ft_var_free.c) \
 			$(addprefix $(NUM_D), ft_atoi_base.c ft_atoi_strict.c \
 				ft_atoi.c ft_intoverflow.c \
 				ft_itoa.c) \
@@ -82,10 +83,6 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(@D)
 	@echo "$(PURPLE)Compiling: $<$(RESET)"
 	@$(CC) $(FLAGS) -I $(INC_DIR) -c $< -o $@
-
-test: $(NAME) test.c
-	@$(CC) $(FLAGS) test.c -L. -lftx -o test
-	@./test
 
 clean:
 	@echo "$(BLUE)Cleaning$(RESET)"

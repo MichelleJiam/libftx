@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_front.c                                  :+:    :+:            */
+/*   ft_var_free.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/07 17:36:06 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/04 20:09:42 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/13 22:05:14 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/13 22:26:47 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-/* Adds the element new at the beginning of the list,
-head being the first link of the list. */
+/* Variadic function for freeing num amount of items. Returns ret. */
 
-void	ft_lstadd_front(t_list **head, t_list *new)
+int	ft_var_free(int ret, int num, ...)
 {
-	if (!head || !new)
-		return ;
-	new->next = *head;
-	*head = new;
+	va_list	list;
+	void	*data;
+
+	va_start(list, num);
+	while (num)
+	{
+		data = va_arg(list, void *);
+		free(data);
+		num--;
+	}
+	va_end(list);
+	return (ret);
 }
