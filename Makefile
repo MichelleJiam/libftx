@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/13 23:14:24 by mjiam         ########   odam.nl          #
+#    Updated: 2021/04/13 23:36:20 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 			$(addprefix $(GNL_D), get_next_line.c \
 				ft_free_files.c ft_free_one_file.c) \
 			$(addprefix $(LST_D), ft_dlst_mergesort.c ft_dlstadd_back.c \
-				ft_dlstadd_front.c ft_dlstdelnode.c \
-				ft_dlstnew.c \
+				ft_dlstadd_front.c ft_dlstclear.c \
+				ft_dlstdelnode.c ft_dlstnew.c \
 				ft_lstadd_back.c ft_lstadd_front.c \
 				ft_lstadd_node.c ft_lstclear.c \
 				ft_lstdelhead.c ft_lstdelone.c \
