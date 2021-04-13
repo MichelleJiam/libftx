@@ -6,13 +6,14 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/09 23:22:31 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/13 22:09:47 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTX_H
 # define LIBFTX_H
 # include <limits.h> // INT_MAX
+# include <stdarg.h> // va_arg
 # include <stddef.h> // size_t, NULL
 # include <stdint.h> // intmax_t, intptr_t
 # include <stdlib.h> // free, malloc
@@ -76,6 +77,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
+int		ft_var_free(int ret, int num, ...);
 
 /* num */
 int		ft_atoi_base(const char *str, int str_base);
