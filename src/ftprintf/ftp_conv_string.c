@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   conv_string.c                                      :+:    :+:            */
+/*   ftp_conv_string.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/16 13:41:07 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/18 22:24:59 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/18 22:25:10 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-int		conv_string(t_format *data, va_list list, int *printcount)
+int	ftp_conv_string(t_format *format, va_list list, int *printcount)
 {
 	size_t	len;
 	size_t	newlen;
 	char	*str;
 
-	if (data->precision == 0 && !data->width)
+	if (format->precision == 0 && !format->width)
 		return (0);
-	if (data->precision < 0)
-		data->precision = -2;
+	if (format->precision < 0)
+		format->precision = -2;
 	str = va_arg(list, char *);
 	if (!str)
 		str = "(null)";
 	len = ft_strlen(str);
-	newlen = adjuster(data, len);
-	if (data->precision != -2 && data->precision < (int)len)
-		len = data->precision;
-	if (!data->left && newlen > len)
-		printer(' ', newlen - len, printcount);
-	writer(str, len, printcount);
-	if (data->left && newlen > len)
-		printer(' ', newlen - len, printcount);
+	newlen = lenadjuster(format, len);
+	if (format->precision != -2 && format->precision < (int)len)
+		len = format->precision;
+	if (!format->left && newlen > len)
+		ftp_printer(' ', newlen - len, printcount);
+	ftp_writer(str, len, printcount);
+	if (format->left && newlen > len)
+		ftp_printer(' ', newlen - len, printcount);
 	return (0);
 }

@@ -1,60 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   setter.c                                           :+:    :+:            */
+/*   format_setter.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/21 21:15:47 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/18 22:21:16 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/18 22:21:17 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-void	widthsetter(t_format *data, va_list list)
+void	widthsetter(t_format *format, va_list list)
 {
-	data->width = va_arg(list, int);
-	if (data->width < 0)
+	format->width = va_arg(list, int);
+	if (format->width < 0)
 	{
-		data->width *= -1;
-		data->left = 1;
+		format->width *= -1;
+		format->left = 1;
 	}
 }
 
-void	sizesetter(const char **input, t_format *data)
+void	sizesetter(const char **input, t_format *format)
 {
 	if (**input == 'h')
 	{
 		if (*(*input + 1) == 'h')
 		{
-			data->modifier = hh;
+			format->modifier = hh;
 			(*input)++;
 		}
 		else
-			data->modifier = h;
+			format->modifier = h;
 	}
 	else if (**input == 'l')
 	{
 		if (*(*input + 1) == 'l')
 		{
-			data->modifier = ll;
+			format->modifier = ll;
 			(*input)++;
 		}
 		else
-			data->modifier = l;
+			format->modifier = l;
 	}
 }
 
-void	precisionsetter(const char **input, t_format *data)
+void	precisionsetter(const char **input, t_format *format)
 {
 	if (*(*input + 1) == '*')
 	{
-		data->precision = -1;
+		format->precision = -1;
 		(*input)++;
 	}
 	else if (ft_isdigit(*(*input + 1)))
-		data->precision = ft_atoi(*input + 1);
+		format->precision = ft_atoi(*input + 1);
 	else
-		data->precision = 0;
+		format->precision = 0;
 }

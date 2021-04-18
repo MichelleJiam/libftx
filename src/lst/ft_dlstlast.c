@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   printer.c                                          :+:    :+:            */
+/*   ft_dlstlast.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/03 20:16:50 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:30:57 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/18 21:54:13 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/18 21:55:17 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-void	writer(const char *ptr, size_t len, int *printcount)
-{
-	write(1, ptr, len);
-	*printcount += len;
-}
+/* Returns the last element of the double-ended list. */
 
-void	printer(const char c, size_t len, int *printcount)
+t_dlist	*ft_dlstlast(t_dlist *lst)
 {
-	size_t	i;
-
-	i = 0;
-	while (len && i < len)
-	{
-		writer(&c, 1, printcount);
-		i++;
-	}
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   u_itoa.c                                           :+:    :+:            */
+/*   ftp_unsigned_itoa.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 18:30:24 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
+/*   Created: 2021/04/18 22:26:17 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/04/18 22:26:52 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static size_t	a_numcount(size_t nc)
 	return (newnc);
 }
 
-static size_t	unumcount(uintmax_t n, unsigned int base, t_format *data)
+static size_t	unumcount(uintmax_t n, unsigned int base, t_format *format)
 {
-	size_t nc;
+	size_t	nc;
 
 	nc = 0;
 	if (n == 0)
@@ -39,30 +39,30 @@ static size_t	unumcount(uintmax_t n, unsigned int base, t_format *data)
 		n /= base;
 		nc++;
 	}
-	if (data->type == 'u' && data->group)
+	if (format->type == 'u' && format->group)
 		nc = a_numcount(nc);
-	if ((int)nc < data->precision)
-		nc = data->precision;
+	if ((int)nc < format->precision)
+		nc = format->precision;
 	return (nc);
 }
 
-static void		setfinder(t_format *data, char **set)
+static void	setfinder(t_format *format, char **set)
 {
-	if (data->type == 'u')
+	if (format->type == 'u')
 		*set = "0123456789";
-	else if (data->type == 'X')
+	else if (format->type == 'X')
 		*set = "0123456789ABCDEF";
 	else
 		*set = "0123456789abcdef";
 }
 
-static char		*a_makestring(uintmax_t n, t_format *data, size_t nc, char *str)
+static char	*a_makestring(uintmax_t n, t_format *format, size_t nc, char *str)
 {
 	int		comma;
 	char	*set;
 
 	comma = 0;
-	setfinder(data, &set);
+	setfinder(format, &set);
 	str[nc] = '\0';
 	while (nc > 0)
 	{
@@ -80,21 +80,21 @@ static char		*a_makestring(uintmax_t n, t_format *data, size_t nc, char *str)
 	return (str);
 }
 
-char			*u_itoa(uintmax_t n, t_format *data, unsigned int base)
+char	*ftp_unsigned_itoa(uintmax_t n, t_format *format, unsigned int base)
 {
 	char			*str;
 	char			*set;
 	size_t			nc;
 
-	nc = unumcount(n, base, data);
+	nc = unumcount(n, base, format);
 	str = malloc(sizeof(char) * (nc + 1));
 	if (!str)
 		return (0);
-	if (data->type == 'u' && data->group)
-		str = a_makestring(n, data, nc, str);
+	if (format->type == 'u' && format->group)
+		str = a_makestring(n, format, nc, str);
 	else
 	{
-		setfinder(data, &set);
+		setfinder(format, &set);
 		str[nc] = '\0';
 		while (nc > 0)
 		{
