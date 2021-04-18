@@ -6,70 +6,60 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 12:35:56 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 22:20:46 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-int		isvalid(const char **input, t_format *data)
-{
-	if (!**input)
-	{
-		data->type = 0;
-		return (0);
-	}
-	return (1);
-}
-
-int		adjuster(t_format *data, size_t len)
+int	lenadjuster(t_format *format, size_t len)
 {
 	size_t	newlen;
 
 	newlen = len;
-	if (data->width != (int)len)
-		newlen = data->width;
-	if (data->precision != -2 && data->width < data->precision)
+	if (format->width != (int)len)
+		newlen = format->width;
+	if (format->precision != -2 && format->width < format->precision)
 	{
-		if (data->type == 's' && data->precision < (int)len)
-			newlen = data->precision;
-		else if (data->type != 's' && data->precision > (int)len)
-			newlen = data->precision;
+		if (format->type == 's' && format->precision < (int)len)
+			newlen = format->precision;
+		else if (format->type != 's' && format->precision > (int)len)
+			newlen = format->precision;
 	}
 	return (newlen);
 }
 
-void	datainitialiser(t_format *data)
+void	format_initialiser(t_format *format)
 {
-	data->modifier = 0;
-	data->left = 0;
-	data->zero = 0;
-	data->precision = -2;
-	data->hash = 0;
-	data->group = 0;
-	data->sp_plus = 0;
-	data->sign = 0;
-	data->size = 0;
-	data->width = 0;
+	format->modifier = 0;
+	format->left = 0;
+	format->zero = 0;
+	format->precision = -2;
+	format->hash = 0;
+	format->group = 0;
+	format->sp_plus = 0;
+	format->sign = 0;
+	format->size = 0;
+	format->width = 0;
 }
 
-int		ft_printf(const char *input, ...)
+int	ft_printf(const char *input, ...)
 {
-	va_list	list;
-	t_format	data;
-	int		printcount;
+	va_list		list;
+	t_format	format;
+	int			printcount;
 
 	printcount = 0;
 	va_start(list, input);
 	while (*input)
 	{
 		if (*input != '%')
-			writer(input, 1, &printcount);
+			ftp_writer(input, 1, &printcount);
 		else
 		{
-			datainitialiser(&data);
+			format_initialiser(&format);
 			input++;
-			if (parser(&input, &data, list, &printcount) < 0)
+			if (format_parser(&input, &format, list, &printcount) < 0)
 				return (-1);
 		}
 		input++;

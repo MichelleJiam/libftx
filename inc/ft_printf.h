@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/18 19:25:03 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:46:53 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 22:19:42 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 # define FT_PRINTF_H
 # include "libftx.h"
 
-typedef enum	e_mod
+typedef enum e_mod
 {
-	l = 1, ll = 2, h = 3, hh = 4
+	l = 1,
+	ll = 2,
+	h = 3,
+	hh = 4
 }				t_mod;
 
 typedef struct	s_format
@@ -36,36 +39,31 @@ typedef struct	s_format
 }				t_format;
 
 int				ft_printf(const char *input, ...);
-int				adjuster(t_format *data, size_t len);
-int				converter(t_format *data, va_list list, int *printcount);
-void			datainitialiser(t_format *data);
-void			flagchecker(const char **input, t_format *data);
-int				isvalid(const char **input, t_format *data);
-int				parser(const char **input, t_format *data, va_list list,
+int				lenadjuster(t_format *format, size_t len);
+int				format_parser(const char **input, t_format *format, va_list list,
 				int *printcount);
-void			precisionsetter(const char **input, t_format *data);
-void			printer(const char c, size_t len, int *printcount);
-void			sizesetter(const char **input, t_format *data);
-int				typefinder(const char **input);
-void			widthsetter(t_format *data, va_list list);
-void			writer(const char *ptr, size_t len, int *printcount);
+void			precisionsetter(const char **input, t_format *format);
+void			sizesetter(const char **input, t_format *format);
+void			widthsetter(t_format *format, va_list list);
+void			ftp_writer(const char *ptr, size_t len, int *printcount);
+void			ftp_printer(const char c, size_t len, int *printcount);
 
 /*
 ** converters
 */
 
-int				conv_char(t_format *data, va_list list, int *printcount);
-int				conv_hex(t_format *data, va_list list, int *printcount);
-int				conv_int(t_format *data, va_list list, int *printcount);
-int				conv_n(t_format *data, va_list list, int *printcount);
-int				conv_percent(t_format *data, int *printcount);
-int				conv_string(t_format *data, va_list list, int *printcount);
+int				ftp_conv_char(t_format *format, va_list list, int *printcount);
+int				ftp_conv_hex(t_format *format, va_list list, int *printcount);
+int				ftp_conv_num(t_format *format, va_list list, int *printcount);
+int				ftp_conv_n(t_format *format, va_list list, int *printcount);
+int				ftp_conv_percent(t_format *format, int *printcount);
+int				ftp_conv_string(t_format *format, va_list list, int *printcount);
 
 /*
 ** utils
 */
 
-char			*p_itoa(intmax_t n, t_format *data);
-char			*u_itoa(uintmax_t n, t_format *data, unsigned int base);
+char			*ftp_signed_itoa(intmax_t n, t_format *format);
+char			*ftp_unsigned_itoa(uintmax_t n, t_format *format, unsigned int base);
 
 #endif
