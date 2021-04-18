@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/23 23:03:39 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/09 21:42:31 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:40:18 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int	main(void)
 		printf("Overflow detected trying to sum [%d] + [%d]\n", a, b);
 	else
 		printf("No overflow. Sum is [%d]\n", *res);
+
+	ft_printf("[%.3d], [%.2d], [%3d]\n", 1, 42, 13);
 	return (0);
 }

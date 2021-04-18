@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 17:59:37 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:32:55 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h> // free, malloc
 # include <unistd.h> // write
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct s_dlist
 {
