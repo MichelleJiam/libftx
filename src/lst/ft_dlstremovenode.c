@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/18 17:51:37 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 17:54:06 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 18:14:41 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ void	ft_dlstremovenode(t_dlist **head, t_dlist *node)
 		node->next->prev = node->prev;
 	if (node == *head)
 		*head = node->next;
+	node->next = NULL;
+	node->prev = NULL;
 }
