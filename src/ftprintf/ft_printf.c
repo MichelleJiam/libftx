@@ -6,13 +6,13 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 12:35:56 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:30:57 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-int		isvalid(const char **input, t_data *data)
+int		isvalid(const char **input, t_format *data)
 {
 	if (!**input)
 	{
@@ -22,7 +22,7 @@ int		isvalid(const char **input, t_data *data)
 	return (1);
 }
 
-int		adjuster(t_data *data, size_t len)
+int		adjuster(t_format *data, size_t len)
 {
 	size_t	newlen;
 
@@ -39,7 +39,7 @@ int		adjuster(t_data *data, size_t len)
 	return (newlen);
 }
 
-void	datainitialiser(t_data *data)
+void	datainitialiser(t_format *data)
 {
 	data->modifier = 0;
 	data->left = 0;
@@ -56,7 +56,7 @@ void	datainitialiser(t_data *data)
 int		ft_printf(const char *input, ...)
 {
 	va_list	list;
-	t_data	data;
+	t_format	data;
 	int		printcount;
 
 	printcount = 0;

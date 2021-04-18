@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 18:30:24 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:31:54 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	a_numcount(size_t nc)
 	return (newnc);
 }
 
-static size_t	unumcount(uintmax_t n, unsigned int base, t_data *data)
+static size_t	unumcount(uintmax_t n, unsigned int base, t_format *data)
 {
 	size_t nc;
 
@@ -46,7 +46,7 @@ static size_t	unumcount(uintmax_t n, unsigned int base, t_data *data)
 	return (nc);
 }
 
-static void		setfinder(t_data *data, char **set)
+static void		setfinder(t_format *data, char **set)
 {
 	if (data->type == 'u')
 		*set = "0123456789";
@@ -56,7 +56,7 @@ static void		setfinder(t_data *data, char **set)
 		*set = "0123456789abcdef";
 }
 
-static char		*a_makestring(uintmax_t n, t_data *data, size_t nc, char *str)
+static char		*a_makestring(uintmax_t n, t_format *data, size_t nc, char *str)
 {
 	int		comma;
 	char	*set;
@@ -80,7 +80,7 @@ static char		*a_makestring(uintmax_t n, t_data *data, size_t nc, char *str)
 	return (str);
 }
 
-char			*u_itoa(uintmax_t n, t_data *data, unsigned int base)
+char			*u_itoa(uintmax_t n, t_format *data, unsigned int base)
 {
 	char			*str;
 	char			*set;

@@ -6,13 +6,13 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/16 13:36:05 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:30:57 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-int		conv_percent(t_data *data, int *printcount)
+int		conv_percent(t_format *data, int *printcount)
 {
 	char	filler;
 
@@ -25,7 +25,7 @@ int		conv_percent(t_data *data, int *printcount)
 	return (0);
 }
 
-int		conv_char(t_data *data, va_list list, int *printcount)
+int		conv_char(t_format *data, va_list list, int *printcount)
 {
 	int		c;
 	char	filler;

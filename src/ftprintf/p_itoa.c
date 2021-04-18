@@ -6,13 +6,13 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 18:30:24 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:31:50 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-static char		*makestring(char *str, size_t *nc, uintmax_t num, t_data *data)
+static char		*makestring(char *str, size_t *nc, uintmax_t num, t_format *data)
 {
 	int		comma;
 
@@ -34,7 +34,7 @@ static char		*makestring(char *str, size_t *nc, uintmax_t num, t_data *data)
 	return (str);
 }
 
-static size_t	a_numcount(size_t nc, intmax_t n, t_data *data)
+static size_t	a_numcount(size_t nc, intmax_t n, t_format *data)
 {
 	size_t	newnc;
 
@@ -71,7 +71,7 @@ static size_t	numcount(intmax_t n)
 	return (nc);
 }
 
-char			*p_itoa(intmax_t n, t_data *data)
+char			*p_itoa(intmax_t n, t_format *data)
 {
 	char		*str;
 	int			neg;

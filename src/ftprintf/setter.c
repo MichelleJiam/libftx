@@ -6,13 +6,13 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/21 21:15:47 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:30:57 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-void	widthsetter(t_data *data, va_list list)
+void	widthsetter(t_format *data, va_list list)
 {
 	data->width = va_arg(list, int);
 	if (data->width < 0)
@@ -22,7 +22,7 @@ void	widthsetter(t_data *data, va_list list)
 	}
 }
 
-void	sizesetter(const char **input, t_data *data)
+void	sizesetter(const char **input, t_format *data)
 {
 	if (**input == 'h')
 	{
@@ -46,7 +46,7 @@ void	sizesetter(const char **input, t_data *data)
 	}
 }
 
-void	precisionsetter(const char **input, t_data *data)
+void	precisionsetter(const char **input, t_format *data)
 {
 	if (*(*input + 1) == '*')
 	{
