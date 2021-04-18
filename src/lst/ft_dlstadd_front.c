@@ -21,7 +21,7 @@ void	ft_dlstadd_front(t_dlist **head, t_dlist *new)
 		return ;
 	new->next = *head;
 	new->prev = NULL;
-	if (*head && (*head)->prev)
+	if (*head)
 		(*head)->prev = new;
 	*head = new;
 }
