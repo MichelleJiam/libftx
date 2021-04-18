@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/18 17:56:14 by mjiam         ########   odam.nl          #
+#    Updated: 2021/04/18 19:29:02 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,11 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 				ft_skipws.c) \
 			$(addprefix $(FD_D), ft_putchar_fd.c ft_putendl_fd.c \
 				ft_putnbr_fd.c ft_putstr_fd.c) \
+			$(addprefix $(PRINT_D), conv_char.c conv_hex.c \
+				conv_num.c conv_string.c \
+				ft_printf.c p_itoa.c \
+				parser.c printer.c \
+				setter.c u_itoa.c) \
 			$(addprefix $(GNL_D), get_next_line.c \
 				ft_free_files.c ft_free_one_file.c) \
 			$(addprefix $(LST_D), ft_dlst_mergesort.c ft_dlstadd_back.c \
@@ -57,6 +62,7 @@ OBJ		=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
 CHR_D	=	char/
 FD_D	=	fd/
+PRINT_D	=	ftprintf/
 GNL_D	=	gnl/
 LST_D	=	lst/
 MEM_D	=	mem/
