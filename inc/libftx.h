@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/16 23:46:03 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 17:59:37 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	ft_dlstadd_back(t_dlist **head, t_dlist *new);
 void	ft_dlstadd_front(t_dlist **head, t_dlist *new);
 void	ft_dlstdelnode(t_dlist **head, t_dlist *node, void (*del)(void *));
 t_dlist	*ft_dlstnew(void *content, t_dlist *previous);
+void	ft_dlstremovenode(t_dlist **head, t_dlist *node);
 void	ft_lstadd_back(t_list **head, t_list *new);
 void	ft_lstadd_front(t_list **head, t_list *new);
 void	ft_lstadd_node(t_list **location, t_list *new);

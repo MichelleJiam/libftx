@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/16 23:46:12 by mjiam         ########   odam.nl          #
+#    Updated: 2021/04/18 17:59:48 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,14 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 				ft_free_files.c ft_free_one_file.c) \
 			$(addprefix $(LST_D), ft_dlst_mergesort.c ft_dlstadd_back.c \
 				ft_dlstadd_front.c ft_dlstdelnode.c \
-				ft_dlstnew.c ft_lstadd_back.c \
-				ft_lstadd_front.c ft_lstadd_node.c \
-				ft_lstclear.c ft_lstdelhead.c \
-				ft_lstdelone.c ft_lstfree.c \
-				ft_lstiter.c ft_lstlast.c \
-				ft_lstmap.c ft_lstnew.c \
-				ft_lstprint_int.c ft_lstsize.c) \
+				ft_dlstnew.c ft_dlstremovenode.c \
+				ft_lstadd_back.c ft_lstadd_front.c \
+				ft_lstadd_node.c ft_lstclear.c \
+				ft_lstdelhead.c ft_lstdelone.c \
+				ft_lstfree.c ft_lstiter.c \
+				ft_lstlast.c ft_lstmap.c \
+				ft_lstnew.c ft_lstprint_int.c \
+				ft_lstsize.c) \
 			$(addprefix $(MEM_D), ft_bzero.c ft_calloc.c \
 				ft_memccpy.c ft_memchr.c \
 				ft_memcmp.c ft_memcpy.c \
