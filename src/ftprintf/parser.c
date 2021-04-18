@@ -6,13 +6,13 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/16 13:43:11 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:30:57 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-int		converter(t_data *data, va_list list, int *printcount)
+int		converter(t_format *data, va_list list, int *printcount)
 {
 	if (data->width == -1)
 		widthsetter(data, list);
@@ -35,7 +35,7 @@ int		converter(t_data *data, va_list list, int *printcount)
 		return (-1);
 }
 
-void	flagchecker(const char **input, t_data *data)
+void	flagchecker(const char **input, t_format *data)
 {
 	if (**input == '-')
 		data->left = 1;
@@ -78,7 +78,7 @@ int		typefinder(const char **input)
 	return (0);
 }
 
-int		parser(const char **input, t_data *data, va_list list, int *printcount)
+int		parser(const char **input, t_format *data, va_list list, int *printcount)
 {
 	while (**input && isvalid(input, data))
 	{

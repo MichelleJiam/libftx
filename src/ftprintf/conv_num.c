@@ -6,13 +6,13 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/16 11:59:19 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 19:30:57 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/18 19:46:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-static int		num_printer(t_data *data, char *str, intmax_t num, size_t len)
+static int		num_printer(t_format *data, char *str, intmax_t num, size_t len)
 {
 	int		printcount;
 	size_t	signedlen;
@@ -40,7 +40,7 @@ static int		num_printer(t_data *data, char *str, intmax_t num, size_t len)
 	return (printcount);
 }
 
-static intmax_t	vargtype(t_data *data, va_list list)
+static intmax_t	vargtype(t_format *data, va_list list)
 {
 	intmax_t num;
 
@@ -57,7 +57,7 @@ static intmax_t	vargtype(t_data *data, va_list list)
 	return (num);
 }
 
-int				conv_int(t_data *data, va_list list, int *printcount)
+int				conv_int(t_format *data, va_list list, int *printcount)
 {
 	intmax_t	num;
 	size_t		len;
