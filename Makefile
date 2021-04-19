@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/18 22:46:48 by mjiam         ########   odam.nl          #
+#    Updated: 2021/04/19 16:35:43 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(PURPLE)Linking library$(RESET)"
-	@ar rc $(NAME) $(OBJ)
+	@ar cr $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "Library $(CYAN)$@$(RESET) made"	
 
