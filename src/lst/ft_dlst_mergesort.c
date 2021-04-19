@@ -52,7 +52,7 @@ void	splitlist(t_dlist *lsta, t_dlist **lstb)
 	slow->next = NULL;
 }
 
-t_dlist	*ft_dlist_mergesort(t_dlist *lst)
+t_dlist	*ft_dlst_mergesort(t_dlist *lst)
 {
 	t_dlist	*lstb;
 
