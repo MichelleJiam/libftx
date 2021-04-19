@@ -59,7 +59,7 @@ t_dlist	*ft_dlst_mergesort(t_dlist *lst)
 	if (!lst || !lst->next)
 		return (lst);
 	splitlist(lst, &lstb);
-	lst = ft_dlist_mergesort(lst);
-	lstb = ft_dlist_mergesort(lstb);
+	lst = ft_dlst_mergesort(lst);
+	lstb = ft_dlst_mergesort(lstb);
 	return (mergelist(lst, lstb));
 }
