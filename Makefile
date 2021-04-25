@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/19 16:35:43 by mjiam         ########   odam.nl          #
+#    Updated: 2021/04/25 21:52:10 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,9 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 				ft_memcmp.c ft_memcpy.c \
 				ft_memmove.c ft_memset.c \
 				ft_var_free.c) \
-			$(addprefix $(NUM_D), ft_atoi_base.c ft_atoi_strict.c \
-				ft_atoi.c ft_intoverflow.c \
-				ft_itoa.c) \
+			$(addprefix $(NUM_D), ft_abs.c ft_atoi_base.c \
+				ft_atoi_strict.c ft_atoi.c \
+				ft_intoverflow.c ft_itoa.c) \
 			$(addprefix $(STR_D), ft_split.c ft_strchr.c \
 				ft_strcmp.c ft_strdup.c \
 				ft_strjoin.c ft_strlcat.c \
