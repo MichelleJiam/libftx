@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/18 21:57:28 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/04/25 21:49:44 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	*ft_memset(void *b, int c, size_t len);
 int		ft_var_free(int ret, int num, ...);
 
 /* num */
+int		ft_abs(int num);
 int		ft_atoi_base(const char *str, int str_base);
 int		ft_atoi_strict(const char *str, int *num);
 int		ft_atoi(const char *str);
