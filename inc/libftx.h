@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 16:36:42 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/25 21:49:44 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/05/10 17:39:01 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFTX_H
 # include <limits.h> // INT_MAX
 # include <stdarg.h> // va_arg
+# include <stdbool.h> // bool
 # include <stddef.h> // size_t, NULL
 # include <stdint.h> // intmax_t, intptr_t
 # include <stdlib.h> // free, malloc
@@ -70,6 +71,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
+void    ft_lstpop(t_list **list, bool free_content);
 void	ft_lstprint_int(t_list *lst);
 int		ft_lstsize(t_list *lst);
 

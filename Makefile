@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/25 21:49:19 by mjiam         ########   odam.nl          #
+#    Updated: 2021/05/10 17:37:54 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,8 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 				ft_lstdelhead.c ft_lstdelone.c \
 				ft_lstfree.c ft_lstiter.c \
 				ft_lstlast.c ft_lstmap.c \
-				ft_lstnew.c ft_lstprint_int.c \
-				ft_lstsize.c) \
+				ft_lstnew.c ft_lstpop.c \
+				ft_lstprint_int.c ft_lstsize.c) \
 			$(addprefix $(MEM_D), ft_bzero.c ft_calloc.c \
 				ft_memccpy.c ft_memchr.c \
 				ft_memcmp.c ft_memcpy.c \
