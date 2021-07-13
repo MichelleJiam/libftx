@@ -13,7 +13,8 @@
 #include "libftx.h"
 
 /* Converts str to int representation and saves in *num. Returns 0 if success.
-If over or under int limits, returns -1 and doesn't change *num. */
+If over or under int limits, returns -1 and doesn't change *num. 
+Treats invalid characters the same as library atoi, ignores and returns 0. */
 
 int	ft_atoi_strict(const char *str, int *num)
 {
