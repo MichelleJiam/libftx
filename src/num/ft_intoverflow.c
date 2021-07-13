@@ -18,9 +18,8 @@ If not, updates result with sum and returns 0. */
 
 int	ft_intoverflow(int *result, int a, int b)
 {
-	if (a > 0 && b > 0 && a > INT_MAX - b)
-		return (1);
-	else if (a < 0 && b < 0 && a < INT_MIN - b)
+	if (((b > 0) && (a > INT_MAX - b)) ||
+		((b < 0) && (a < INT_MIN - b)))
 		return (1);
 	else
 	{
