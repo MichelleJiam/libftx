@@ -16,10 +16,10 @@
 If overflow, returns 1 without modifying result. 
 If not, updates result with sum and returns 0. */
 
-int	ft_intoverflow(int *result, int a, int b)
+int	ft_intoverflow(int *result, intmax_t a, intmax_t b)
 {
-	if (((b > 0) && (a > INT_MAX - b)) ||
-		((b < 0) && (a < INT_MIN - b)))
+	if ((b > 0 && (a > INT_MAX - b)) ||
+		(b < 0 && (a < INT_MIN - b)))
 		return (1);
 	else
 	{
