@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 17:54:49 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/09 23:21:46 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/07/19 15:29:23 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* Converts str to int representation and saves in *num. Returns 0 if success.
 If over or under int limits, returns -1 and doesn't change *num. 
-Treats invalid characters the same as library atoi, ignores and returns 0. */
+On finding non-digit characters, stops conversion and returns 0. */
 
 int	ft_atoi_strict(const char *str, int *num)
 {
@@ -31,7 +31,7 @@ int	ft_atoi_strict(const char *str, int *num)
 	while (*str && ft_isdigit(*str))
 	{
 		n = n * 10 + (*str - '0');
-		if ((!negative && n > INT_MAX) || (negative && ((n * -1) < INT_MIN)))
+		if ((!negative && n > INT_MAX) || (negative && -(n) < INT_MIN))
 			return (-1);
 		str++;
 	}
