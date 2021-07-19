@@ -6,7 +6,7 @@
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/23 23:03:39 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/04/19 17:05:35 by mjiam         ########   odam.nl         */
+/*   Updated: 2021/07/19 15:47:49 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,15 @@ int	main(int ac, char **av)
 		ft_lstprint_int((t_list*)list);
 		ft_lstfree((t_list **)&list);
 	}
+
+	char *str = "-2147483648";
+	// char *str = "-asdf";
+    // char *str = "++42";
+    // char *str = "42222222222222";
+	// char *str = "-2147483649";
+    int atoia_test_num = 0;
+	ft_printf("input: %s -> valid_atoia returns: %s, converted num: %d\n",
+        str, ft_valid_atoia(str, &atoia_test_num) ? "true" : "false", atoia_test_num);
+
 	return (0);
 }

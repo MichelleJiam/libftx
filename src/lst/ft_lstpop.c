@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_intoverflow.c                                   :+:    :+:            */
+/*   ft_lstpop.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mjiam <mjiam@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/04/09 21:21:10 by mjiam         #+#    #+#                 */
-/*   Updated: 2021/07/19 15:46:54 by mjiam         ########   odam.nl         */
+/*   Created: 2021/05/10 17:24:43 by mjiam         #+#    #+#                 */
+/*   Updated: 2021/07/19 15:38:51 by mjiam         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftx.h"
 
-/* Checks for integer overflow in sum of a and b. 
-If overflow, returns 1 without modifying result. 
-If not, updates result with sum and returns 0. */
+/* frees last node of list without freeing contents */
 
-int	ft_intoverflow(int *result, intmax_t a, intmax_t b)
+void	ft_lstpop(t_list **list, bool free_content)
 {
-	if ((b > 0 && (a > INT_MAX - b))
-		|| (b < 0 && (a < INT_MIN - b)))
-		return (1);
-	else
-	{
-		*result = a + b;
-		return (0);
-	}
+	t_list	*last;
+	t_list	*tmp;
+
+	last = ft_lstlast(*list);
+	tmp = *list;
+	if (list == NULL)
+		return ;
+	while (tmp->next != last)
+		tmp = tmp->next;
+	if (free_content == true)
+		free(last->content);
+	free(last);
+	tmp->next = NULL;
 }

@@ -6,7 +6,7 @@
 #    By: mjiam <mjiam@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 11:09:19 by mjiam         #+#    #+#                  #
-#    Updated: 2021/04/25 21:52:10 by mjiam         ########   odam.nl          #
+#    Updated: 2021/07/19 15:47:20 by mjiam         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,8 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 				ft_lstdelhead.c ft_lstdelone.c \
 				ft_lstfree.c ft_lstiter.c \
 				ft_lstlast.c ft_lstmap.c \
-				ft_lstnew.c ft_lstprint_int.c \
-				ft_lstsize.c) \
+				ft_lstnew.c ft_lstpop.c \
+				ft_lstprint_int.c ft_lstsize.c) \
 			$(addprefix $(MEM_D), ft_bzero.c ft_calloc.c \
 				ft_memccpy.c ft_memchr.c \
 				ft_memcmp.c ft_memcpy.c \
@@ -49,7 +49,8 @@ SRC		=	$(addprefix $(CHR_D), ft_isalnum.c ft_isalpha.c \
 				ft_var_free.c) \
 			$(addprefix $(NUM_D), ft_abs.c ft_atoi_base.c \
 				ft_atoi_strict.c ft_atoi.c \
-				ft_intoverflow.c ft_itoa.c) \
+				ft_intoverflow.c ft_itoa.c \
+				ft_valid_atoia.c) \
 			$(addprefix $(STR_D), ft_split.c ft_strchr.c \
 				ft_strcmp.c ft_strdup.c \
 				ft_strjoin.c ft_strlcat.c \
